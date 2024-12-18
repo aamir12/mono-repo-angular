@@ -1,0 +1,13 @@
+Before running this below command. Setup suitable node version by using nvm. I used node 18
+ng new mono-workspace --create-application=false //create workspace
+cd mono-workspace
+ng g application host-app --routing --style=scss //create project
+ng g application mfe-app --routing --style=scss  //create project
+ng s host-app -o //run project
+ng s mfe-app -o 
+npm i webpack webpack-cli --save-dev // this optional if we are using angular >= 12
+ng add @angular-architects/module-federation --project host-app --port 4200
+ng add @angular-architects/module-federation --project mfe-app --port 4300
+
+ng g c home --project=host-app
+ng g module todo-list --project=mfe-app
